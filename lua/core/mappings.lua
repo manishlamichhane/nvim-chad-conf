@@ -16,6 +16,9 @@ M.general = {
   },
 
   n = {
+    ["<M-j>"] = {"<cmd>cnext<CR>zz", "Walk down the quick fix list"},
+    ["<M-k>"] = {"<cmd>cprev<CR>zz", "Walk up the quick fix list"},
+
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
@@ -151,7 +154,7 @@ M.lspconfig = {
       "LSP hover",
     },
 
-    ["gi"] = {
+    ["ci"] = {
       function()
         vim.lsp.buf.implementation()
       end,
@@ -186,7 +189,7 @@ M.lspconfig = {
       "LSP code action",
     },
 
-    ["gr"] = {
+    ["cr"] = {
       function()
         vim.lsp.buf.references()
       end,
@@ -270,6 +273,9 @@ M.telescope = {
 
   n = {
     -- find
+    
+    ["<leader>fq"] = { "<cmd> Telescope grep_string <CR> <C-q><CR>", "Find references" },
+    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "Find references" },
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
